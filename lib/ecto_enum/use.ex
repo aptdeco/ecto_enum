@@ -47,6 +47,8 @@ defmodule EctoEnum.Use do
       def embed_as(_), do: :self
 
       def equal?(term1, term2), do: term1 == term2
+      
+      def load(nil), do: {:ok, nil}
 
       for {key, value} <- opts do
         def load(unquote(value)), do: {:ok, unquote(key)}
